@@ -10,4 +10,4 @@ Aplicacion web dirigida a la gestion inmobiliaria
 
  ### Funcionamiento de la App
 
- - Debemos instalar los modulos de node para poder asi utilizarla: ejecutamos `npm install' en la carpeta del proyecto para asi, poder contar con sus modulos.
+ - Debemos instalar los modulos de node para poder asi utilizarla: ejecutamos `npm install` en la carpeta del proyecto para asi, poder contar con sus modulos.
