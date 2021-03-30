@@ -11,3 +11,5 @@ Aplicacion web dirigida a la gestion inmobiliaria
  ### Funcionamiento de la App
 
  - Debemos instalar los modulos de node para poder asi utilizarla: ejecutamos `npm install` en la carpeta del proyecto para asi, poder contar con sus modulos.
+ - instalamos ###GULP para la gestion de poryectos. Ejecutamos `npm install --global gulp-cli` para instalarlo de manera global.
+ - Ejecutamos `gulp` para construir el Build.
