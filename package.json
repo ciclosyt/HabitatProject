@@ -1,12 +1,12 @@
 {
   "name": "salon-php-sass",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicacion web dirigida a la gestion inmobiliaria",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "javier jatar",
   "license": "ISC",
   "devDependencies": {
     "cssnano": "^4.1.10",
@@ -27,5 +27,19 @@
   },
   "dependencies": {
     "node-sass": "^5.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciclosyt/HabitatProject.git"
+  },
+  "keywords": [
+    "SASS",
+    "Gulp",
+    "Node",
+    "NPM"
+  ],
+  "bugs": {
+    "url": "https://github.com/ciclosyt/HabitatProject/issues"
+  },
+  "homepage": "https://github.com/ciclosyt/HabitatProject#readme"
 }
