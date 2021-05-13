@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="decode.js">
+    <title>Decode ChipStac</title>
+
+    <script>
+        var bytes = '0100000000E700025E0166';
+        var a = parseInt(bytes[0]);
+        var b = parseInt(bytes[1]);
+        var d, e, f, w;
+
+        w = parseInt(bytes[4]);
+        f = parseInt(bytes[5]);
+        d = parseInt(bytes[6]);
+        e = parseInt(bytes[3], 16);
+
+        var hum1 = parseInt(bytes[8]);
+        var hum2 = parseInt(bytes[9]);
+
+        hum1 = hum1.toString(16);
+        hum2 = hum2.toString(16);
+
+        a = a.toString(16);
+        b = b.toString(16);
+
+        d = d.toString(16);
+        e = e.toString(16);
+
+        if (hum1.length == 1) hum1 = "0" + hum1;
+        if (hum2.length == 1) hum2 = "0" + hum2;
+
+        var humedaD = hum1 + hum2;
+        humedaD = parseInt(humedaD, 16);
+        var v_humedad = humedaD / 100;
+
+
+        if (b.length == 1) b = "0" + b;
+        if (e.length == 1) e = "0" + e;
+
+        var tem = a + b;
+        tem = parseInt(tem, 16);
+        var temp = tem / 10;
+
+        var hum = d + e / 2;
+        hum = parseInt(hum, 16);
+
+        hum = hum / 100;
+        if (hum >= 100) hum = 100;
+
+
+        var volt = w / 10;
+
+        var datos = {
+            "temperatura": temp,
+            "humedad": v_humedad,
+            "voltaje": volt
+        };
+
+        // alert(" humedad: " + v_humedad + " voltaje: " + volt); // temparatura: " + temp + "
+
+
+        function toHexString(byteArray) {
+            return Array.from(byteArray, function(byte) {
+                return ('0' + (byte & 0xFF).toString(16)).slice(-2);
+            }).join('')
+        }
+
+
+        //var b = new Buffer('AQAAAAEDAAHvAWc=', 'base64').toString('ascii');
+        //var s = b.toString();
+
+
+        // antiguo: 01 00 00 00 01 03 00 01 dd 01 67
+
+
+        function base64ToHex(str) {
+            const raw = atob(str);
+            let result = '';
+            for (let i = 0; i < raw.length; i++) {
+                const hex = raw.charCodeAt(i).toString(16);
+                result += (hex.length === 2 ? hex : '0' + hex);
+            }
+            return result.toUpperCase();
+        }
+
+
+        function convert() {
+            var buffer = new ArrayBuffer(2);
+
+            var aUint16 = new Uint16Array(buffer);
+            //var aUint8 = new Uint8Array(buffer);
+
+            //byte[] bytes = { 0, 0, 0, 25 };
+
+            aUint16[0] = '1000';
+            //console.log('aUint16[0] =', aUint16[0]);
+            // console.log('aUint16[1] =', aUint16[1]);
+            // console.log('aUint16[2] =', aUint16[2]);
+            // console.log('aUint8[3] =', aUint8[3]);
+            // console.log('aUint8[4] =', aUint8[4]);
+            // console.log('aUint8[5] =', aUint8[5]);
+            // console.log('aUint8[6] =', aUint8[6]);
+            // console.log('aUint8[7] =', aUint8[7]);
+            // console.log('aUint8[8] =', aUint8[8]);
+            // console.log('aUint8[9] =', aUint8[9]);
+            // console.log('aUint8[10] =', aUint8[10]);
+            // console.log('aUint8[11] =', aUint8[11]);
+
+            // alert(aUint16_b);
+
+            var myByteArray = window.crypto.getRandomValues(new Uint8Array(8));
+
+            //console.log();
+
+        }
+
+        var index = "[0100000000E700025E0166]";
+
+        var aa = index[8];
+        var bb = index[9];
+
+        var concatt = aa + "" + bb;
+        //alert(convert());
+        // parseInt(
+
+
+        // via online : https://cryptii.com/pipes/base64-to-hex 
+        // conversion hex to string: https://www.rapidtables.com/convert/number/hex-to-decimal.html 
+        // console.log(base64ToHex("AQAAAAEDAAHvAWc="));
+
+        //var valor = base64ToHex("AQAAAADnAAJeAWY=");
+        // 01 00 00 00 00 e7 00 02 5e 01 66
+        //0100000000E700025E0166
+
+        // alert("HEX1 :" + base64ToHex("AQAAAADnAAJeAWY="));
+
+
+
+        // 01 00 00 00 00 e7 00 02 5e 01 66
+        //byteArray = new Uint8Array([181, 143, 16, 173, 231, 56, 63, 149, 181, 185, 224, 124, 84, 230, 123, 36]);
+        byteArray = new Uint8Array([01, 00, 00, 00, 00, e7, 00, 02, 5e, 01, 66]);
+
+        function toHexString(byteArray) {
+            return Array.prototype.map.call(byteArray, function(byte) {
+                return ('0' + (byte & 0xFF).toString(16)).slice(-2);
+            }).join('');
+        }
+
+        function toByteArray(hexString) {
+            var result = [];
+            for (var i = 0; i < hexString.length; i += 2) {
+                result.push(parseInt(hexString.substr(i, 2), 16));
+            }
+            return result;
+        }
+        hexString = toHexString(byteArray);
+        byteArray = toByteArray(hexString);
+
+
+
+        // =================================================
+        function string2Bin(str) {
+            var result = [];
+            for (var i = 0; i < str.length; i++) {
+                result.push(str.charCodeAt(i));
+            }
+            return result;
+        }
+
+        function bin2String(array) {
+            return String.fromCharCode.apply(String, array);
+        }
+
+        string2Bin('foo'); // [102, 111, 111]
+        bin2String(string2Bin('foo')) === 'foo'; // true
+
+        function provaD() {
+            console.log('Hola');
+        }
+    </script>
+
+
+
+
+</head>
+
+<body>
+    <p>Hola ChispStack</p>
+    <button onclick="provaD()">Click me</button>
+</body>
+
+</html>

@@ -13,7 +13,8 @@
         "layout/_footer.scss",
         "layout/_navegacion.scss",
         "layout/_iconos.scss",
-        "layout/_anuncios.scss"
+        "layout/_anuncios.scss",
+        "internas/_admin.scss"
     ],
     "names": [],
     "file": "app.css"
