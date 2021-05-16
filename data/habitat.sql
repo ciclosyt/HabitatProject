@@ -43,6 +43,16 @@ CREATE TABLE proprietario (
   fecha_inscripcion datetime default NOW()
 );
 
+CREATE TABLE admin (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(60) NOT NULL,
+  apellido VARCHAR(60) NOT NULL,
+  telefono char(9) NOT NULL,
+  email VARCHAR(60) NOT NULL,
+  password VARCHAR(250) NOT NULL,
+  fecha_inscripcion datetime default NOW()
+);
+
 CREATE TABLE inmueble (
   id int PRIMARY KEY AUTO_INCREMENT,
   id_proprietario int NOT NULL,

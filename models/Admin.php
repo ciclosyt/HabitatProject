@@ -4,7 +4,7 @@ namespace Model;
 
 class Admin extends ActiveRecord
 {
-    protected static $nombreTabla = 'proprietario';
+    protected static $nombreTabla = 'admin';
     //protected static $columnasDB = ['id_usuario', 'email', 'password'];
     //protected static $columnasDB = ['id', 'email', 'password'];
     protected static $columnasDB = ['id', 'email', 'password', 'pwd1', 'pwd1'];
@@ -41,6 +41,7 @@ class Admin extends ActiveRecord
 
         $query = "SELECT * FROM " . self::$nombreTabla . " WHERE email = '";
         $query .= $this->email . "' LIMIT 1";
+        //deputarCod($query);
 
         $resultado = self::$db->query($query);
 

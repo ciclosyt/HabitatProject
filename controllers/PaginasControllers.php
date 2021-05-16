@@ -80,8 +80,8 @@ class PaginasController
             $mail->SMTPSecure = 'tls';
 
             // datos de envio contenido de email
-            $mail->setFrom('admin@habitat.com');
-            $mail->addAddress('admin@habitat.com', 'Habitat.com');
+            $mail->setFrom('admin@habitat.es');
+            $mail->addAddress('admin@habitat.es', 'Habitat.es');
             $mail->Subject = 'Tienes un nuevo mensaje';
 
             // habilitar html
@@ -91,30 +91,25 @@ class PaginasController
             // definir el contenido del email
             $contenido = '<html>';
             $contenido .= '<p>Tienes un nuevo Mensaje</p>';
-            $contenido .= '<p>Nombre: ' . $respuesta['nombre'] . '</p>';
+            $contenido .= '<p><De: ' . $respuesta['nombre'].'</p>';
 
             // enviar de forma condicional algunos campos de email y telefono
 
             if ($respuesta['contacto'] === 'telefono') {
                 // datos telefono
-                $contenido .= '<p>Elegío ser contacto por Teléfono.</p>';
-                $contenido .= '<p>Teléfono: ' . $respuesta['telefono'] . '</p>';
-                $contenido .= '<p>Fecha contacto: ' . $respuesta['fecha'] . '</p>';
-                $contenido .= '<p>Hola: ' . $respuesta['hora'] . '</p>';
+                $contenido .= '<p>Elegío ser contacto por Teléfono: ' . $respuesta['telefono'] . '</p>';
+                $contenido .= '<p>Fecha contacto: ' . $respuesta['fecha'] . ", ". " por vuelta de: ". $respuesta['hora']. "horas".'</p>';
             } else {
                 // es email 
-                $contenido .= '<p>Elegío ser contacto por email.</p>';
-                $contenido .= '<p>Email: ' . $respuesta['email'] . '</p>';
+                $contenido .= '<p>Elegío ser contacto por email: '.  " ". $respuesta['email'] .'</p>';
             }
             $contenido .= '<p>Mensaje: ' . $respuesta['mensaje'] . '</p>';
-            $contenido .= '<p>Vende o compra: ' . $respuesta['tipo'] . '</p>';
-            $contenido .= '<p>Precio o Presupuesto: ' . $respuesta['precio'] . ' €</p>';
-            // $contenido .= '<p>Prefere ser contacto por: ' . $respuesta['contacto'] . '</p>';
+            $contenido .= '<p>Tiene el o bjectivo de : ' . $respuesta['tipo'] . " un inmueble". '</p>';
+            $contenido .= '<p>Con el presupuesto inicial: ' . $respuesta['precio'] . ' €</p>';
+            
             $contenido .= '</html>';
 
             $mail->Body = $contenido;
-            $mail->AltBody = 'Esto es un texto alternativo sin html. ';
-
             // enviar el email 
             if ($mail->send()) {
                 $mensaje = "Mensaje enviada correctamente";

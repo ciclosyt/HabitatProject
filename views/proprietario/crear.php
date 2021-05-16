@@ -1,6 +1,6 @@
 <main class="cotenedor seccion">
     <section class="seccion contenedor">
-        <h1>Registro de Vendor(a)</h1>
+        <h1>Registro de Proprietário de inmueble(a)</h1>
         <a href="/admin" class="boton boton-verde">Volver</a>
 
         <?php foreach ($errores as $error) : ?>

@@ -11,17 +11,6 @@ function incluirTemplate(string $nombre, bool $inicio = false)
     include  TEMPLATES_URL . "/${nombre}.php";
 }
 
-// function estaAutenticado(): bool
-// {
-//     //$seccion = ControlSession::setSecion();
-//     // session_start();
-
-//     // $auth = $_SESSION['login'];
-//     // if ($auth) {
-//     //     return true;
-//     // }
-//     // return false;
-// }
 
 function deputarCod($objecto)
 {

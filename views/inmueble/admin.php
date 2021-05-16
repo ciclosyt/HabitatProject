@@ -10,10 +10,10 @@
         <?php  }
         } ?>
 
-        <a href="/inmueble/crear" class="boton boton-verde">Nueva Propriedade</a>
-        <a href="/proprietario/crear" class="boton boton-amarillo">Nuevo(a) Vendedor</a>
+        <a href="/inmueble/crear" class="boton boton-verde">Nuevo Inmueble</a>
+        <a href="/proprietario/crear" class="boton boton-amarillo">Nuevo(a) Proprietário (a)</a>
 
-        <h2>Inmuebles</h2>
+        <h2>Inmuebles disponibles</h2>
         <table class="propiedades">
             <thead>
                 <tr>
@@ -50,7 +50,7 @@
         </table>
 
 
-        <h2>Proprietários</h2>
+        <h2> Listado de los Proprietários(as)</h2>
         <table class="propiedades">
             <thead>
                 <tr>

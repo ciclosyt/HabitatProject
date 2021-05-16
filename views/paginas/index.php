@@ -4,7 +4,6 @@
     <?php include 'iconos.php';?>
 </main>
 
-
 <section class="seccion contenedor">
 
     <h2>Casas y depas en venta</h2>
@@ -41,7 +40,7 @@
             <div class="texto-entrada">
                 <a href="entrada.php"></a>
                 <h4>Terraza en el techo de tu casa</h4>
-                <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Habitat</span></p>
+                <p class="informacion-meta">Escrito el: <span>19/04/2021</span> por: <span>Habitat</span></p>
 
                 <p>
                     Consejos para construir una terraza en el techo de tu casa con los mejores materiales y ahorrando dinero
@@ -61,7 +60,7 @@
             <div class="texto-entrada">
                 <a href="entrada.php"></a>
                 <h4>Guia para la decoracion de tu hogar</h4>
-                <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Habitat</span></p>
+                <p class="informacion-meta">Escrito el: <span>20/04/2021</span> por: <span>Habitat</span></p>
 
                 <p>
                     Maximiza el espacio en tu hogar con esta guia, aprende a combinar muebles y colores para darle vida a tu espacio

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2021 a las 02:22:30
+-- Tiempo de generación: 16-05-2021 a las 19:26:02
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `habitat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `adimin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `apellido` varchar(60) NOT NULL,
+  `telefono` char(9) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `fecha_inscripcion` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `adimin`
+--
+
+INSERT INTO `adimin` (`id`, `nombre`, `apellido`, `telefono`, `email`, `password`, `fecha_inscripcion`) VALUES
+(1, ' Javier', 'Jatar Gonzalez', '660660660', 'habitatDev1@habitat.es', '$2y$10$Y/XDZoCatxMDEhoL8vH.EOpx0fMLhjcRklLLhg515FpI1r0uy0feq', '2021-05-16 19:18:55'),
+(2, 'Javier', 'M Calvete Parrilla', '660660660', 'habitatDev2@habitat.es', '$2y$10$Y/XDZoCatxMDEhoL8vH.EOpx0fMLhjcRklLLhg515FpI1r0uy0feq', '2021-05-16 19:18:55'),
+(3, 'Jose Cabral Antonio', 'Jamba', '660660660', 'habitatDev3@habitat.es', '$2y$10$Y/XDZoCatxMDEhoL8vH.EOpx0fMLhjcRklLLhg515FpI1r0uy0feq', '2021-05-16 19:18:55');
 
 -- --------------------------------------------------------
 
@@ -150,6 +175,12 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `telefono`, `email`, 
 --
 
 --
+-- Indices de la tabla `adimin`
+--
+ALTER TABLE `adimin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `compra`
 --
 ALTER TABLE `compra`
@@ -191,6 +222,12 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `adimin`
+--
+ALTER TABLE `adimin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `compra`

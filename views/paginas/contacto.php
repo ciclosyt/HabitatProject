@@ -37,6 +37,7 @@
                 <label for="opciones">vende o comprar:</label>
                 <select name="contacto[tipo]" id="opciones">
                     <option value="" disabled selected>-- Seleccione --</option>
+                    <option value="Reservar">Reservar</option>
                     <option value="Compra">Compra</option>
                     <option value="Vende">Vende</option>
                 </select>

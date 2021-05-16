@@ -1,6 +1,6 @@
 <main class="contenedor seccion contenido-centrado">
     <section class="seccion contenedor">
-        <h1>Iniciar Sesión</h1>
+        <h1>Iniciar Sesión Admin</h1>
 
         <?php foreach ($errores as $error) : ?>
             <div class="alerta error">
