@@ -1,26 +1,29 @@
 <?php
 define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCIONES_URL', __DIR__ . 'funciones.php');
-define('CARPETA_IMAGE', __DIR__ . '/../imagenes/');
-//include 'app.php';
+define('CARPETA_IMAGE',  $_SERVER['DOCUMENT_ROOT'] . '/imagenes/');
+define('CARPETA_SESSIONE', __DIR__ . '/../seccion/');
+
+
 function incluirTemplate(string $nombre, bool $inicio = false)
 {
-    // include  TEMPLATES_URL."/${nombre}.php";
+
     include  TEMPLATES_URL . "/${nombre}.php";
 }
 
-function estaAutenticado(): bool
-{
-    session_start();
+// function estaAutenticado(): bool
+// {
+//     //$seccion = ControlSession::setSecion();
+//     // session_start();
 
-    $auth = $_SESSION['login'];
-    if ($auth) {
-        return true;
-    }
-    return false;
-}
+//     // $auth = $_SESSION['login'];
+//     // if ($auth) {
+//     //     return true;
+//     // }
+//     // return false;
+// }
 
-function ImprimirObjecto($objecto)
+function deputarCod($objecto)
 {
     echo "<pre>";
     var_dump($objecto);
@@ -39,28 +42,43 @@ function Cs($html): string
     return $cs;
 }
 
-function validarTIpoConetenido($tipo)
+function validarTipoConetenido($tipo)
 {
     $tipos = ['inmueble', 'proprietario'];
     return in_array($tipo, $tipos);
 }
 
 // mustras los mensaje de aciones CRUD
-function notificacionAccion($code){
+function notificacionAccion($code)
+{
     $mensaje = '';
-    switch($code){
-        case 1: 
+    switch ($code) {
+        case 1:
             $mensaje = 'Creado correctamente.';
-        break;   
-        case 2: 
+            break;
+        case 2:
             $mensaje = 'Actualizado correctamente.';
-        break; 
-        case 3: 
+            break;
+        case 3:
             $mensaje = 'Eliminado correctamente.';
-        break; 
+            break;
         default:
-        $mensaje= false;
-    break;
+            $mensaje = false;
+            break;
     }
     return  $mensaje;
+}
+
+function validarOredireccionar(string $url)
+{
+    
+    // Validar la URL por ID válido
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if (!$id || $id === null) {
+       // deputarCod($url);
+        header("Location:". $url);
+    }
+    return $id;
 }
